@@ -23,7 +23,7 @@ class img_processing():
 
             for (x, y, w, h) in faces:
                 if (w > 200) & (h > 200):
-                    img_crop = img[y:y+h, x:x+w]
+                    img_crop = img_read[y:y+h, x:x+w]
                     img_resized = self.resize(img_crop)
                     self.img_id += 1
                     cv2.imwrite(f'{self.output_path}/{img}.jpg')
