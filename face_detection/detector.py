@@ -9,6 +9,7 @@ class img_processing():
             'haarcascade_frontalface_default.xml')
         self.img_path = img_path
         self.output_path = output_path
+        self.img_id = 0
 
     def resize(self, img):
         return cv2.resize(img, (200, 200), interpolation=cv2.INTER_AREA)
@@ -26,6 +27,7 @@ class img_processing():
                     img_crop = img_read[y:y+h, x:x+w]
                     img_resized = self.resize(img_crop)
                     self.img_id += 1
-                    cv2.imwrite(f'{self.output_path}/{img}.jpg')
+                    cv2.imwrite(f'{self.output_path}/{img}.jpg', img_resized)
 
-        printf('DONE.')
+        printf(
+            f'DONE; {self.img_id} images cropped out of {len(os.listdir(self.img_path))}')
