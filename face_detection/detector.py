@@ -27,7 +27,7 @@ class img_processing():
                     img_crop = img_read[y:y+h, x:x+w]
                     img_resized = self.resize(img_crop)
                     self.img_id += 1
-                    cv2.imwrite(f'{self.output_path}/{img}.jpg', img_resized)
+                    cv2.imwrite(f'{self.output_path}/{img}', img_resized)
 
-        printf(
+        print(
             f'DONE; {self.img_id} images cropped out of {len(os.listdir(self.img_path))}')
